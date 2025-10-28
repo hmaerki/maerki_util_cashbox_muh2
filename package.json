@@ -1,0 +1,25 @@
+{
+  "name": "muh2",
+  "displayName": "muh2",
+  "description": "Cashbox muh2",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "muh2",
+      "aliases": ["Cashbox muh2", "muh2"],
+      "extensions": [".muh2"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "muh2",
+      "scopeName": "source.muh2",
+      "path": "./syntaxes/muh2.tmLanguage.json"
+    }]
+  }
+}
