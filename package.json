@@ -9,6 +9,7 @@
   "categories": [
     "Programming Languages"
   ],
+  "main": "./out/extension.js",
   "contributes": {
     "languages": [{
       "id": "muh2",
@@ -21,5 +22,15 @@
       "scopeName": "source.muh2",
       "path": "./syntaxes/muh2.tmLanguage.json"
     }]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.105.0",
+    "@types/node": "18.x",
+    "typescript": "^5.4.5"
   }
 }

@@ -50,3 +50,59 @@ on how to modify, test and publish your extension.
 For more information, also visit http://code.visualstudio.com and follow us @code.
 ```
 
+## Manual steps required to build the extension
+
+### Prerequisites
+- Node.js (version 18 or higher)
+- npm (comes with Node.js)
+- VS Code
+
+### Build Steps
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Compile TypeScript:**
+   ```bash
+   npm run compile
+   ```
+   
+   Or for continuous compilation during development:
+   ```bash
+   npm run watch
+   ```
+
+3. **Test the extension:**
+   - Press `F5` in VS Code to launch Extension Development Host
+   - Open a `.muh2` file in the new VS Code window
+   - Test syntax highlighting and code completion
+
+4. **Package the extension (optional):**
+   ```bash
+   # Install vsce globally if not already installed
+   npm install -g vsce
+   
+   # Package the extension
+   vsce package
+   ```
+   This creates a `.vsix` file that can be installed in VS Code.
+
+### Development Workflow
+
+- **Edit syntax highlighting:** Modify `syntaxes/muh2.tmLanguage.json`
+- **Edit language config:** Modify `language-configuration.json`  
+- **Edit completion provider:** Modify `src/extension.ts` then run `npm run compile`
+- **Test changes:** Press `F5` to launch new Extension Development Host
+
+### File Structure
+```
+├── src/extension.ts          # Main extension code (completion provider)
+├── syntaxes/                 # TextMate grammar files
+├── language-configuration.json # Language configuration
+├── package.json              # Extension manifest
+├── tsconfig.json             # TypeScript configuration
+└── out/                      # Compiled JavaScript (generated)
+```
+
