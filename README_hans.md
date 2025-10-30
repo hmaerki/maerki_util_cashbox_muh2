@@ -81,13 +81,65 @@ For more information, also visit http://code.visualstudio.com and follow us @cod
 
 4. **Package the extension (optional):**
    ```bash
-   # Install vsce globally if not already installed
-   npm install -g vsce
+   # Install vsce locally if not already installed
+   npm install @vscode/vsce
    
    # Package the extension
-   vsce package
+   npx @vscode/vsce package
    ```
    This creates a `.vsix` file that can be installed in VS Code.
+
+## Installation Options
+
+### Option 1: Install from GitHub Repository (Direct)
+
+1. **Clone and build locally:**
+   ```bash
+   git clone https://github.com/hmaerki/maerki_util_cashbox_muh2.git
+   cd maerki_util_cashbox_muh2
+   npm install
+   npm run compile
+   vsce package
+   code --install-extension muh2-0.0.1.vsix
+   ```
+
+2. **Or use the VS Code command line:**
+   ```bash
+   # Install directly from GitHub (requires git and build tools)
+   git clone https://github.com/hmaerki/maerki_util_cashbox_muh2.git
+   cd maerki_util_cashbox_muh2
+   npm install && npm run compile
+   code --install-extension .
+   ```
+
+### Option 2: Install Pre-built VSIX from Releases
+
+If you create releases on GitHub with pre-built `.vsix` files:
+
+```bash
+# Download the .vsix file from GitHub releases
+wget https://github.com/hmaerki/maerki_util_cashbox_muh2/releases/download/v0.0.1/muh2-0.0.1.vsix
+code --install-extension muh2-0.0.1.vsix
+```
+
+### Option 3: Publish to VS Code Marketplace
+
+1. **Setup publisher account:**
+   ```bash
+   npm install -g vsce
+   vsce create-publisher hmaerki
+   ```
+
+2. **Publish extension:**
+   ```bash
+   vsce publish
+   ```
+
+3. **Install from marketplace:**
+   - Open VS Code
+   - Go to Extensions (Ctrl+Shift+X)
+   - Search for "muh2" by "hmaerki"
+   - Click Install
 
 ### Development Workflow
 

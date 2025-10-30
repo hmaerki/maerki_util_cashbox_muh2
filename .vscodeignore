@@ -2,3 +2,11 @@
 .vscode-test/**
 .gitignore
 vsc-extension-quickstart.md
+node_modules/**
+src/**
+tsconfig.json
+.github/**
+README_hans.md
+test.py
+install.sh
+*.vsix

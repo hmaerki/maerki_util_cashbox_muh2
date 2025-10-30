@@ -1,22 +1,66 @@
-# muh2 README
+# Muh2 VS Code Extension
 
-This is the README for your extension "muh2". After writing up a brief description, we recommend including the following sections.
+A VS Code extension for Cashbox muh2 files, providing syntax highlighting and intelligent code completion.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Syntax Highlighting**: Full syntax highlighting for `.muh2` files
+- **Code Completion**: Intelligent autocompletion for cashbox entries
+- **Real-time Feedback**: Dedicated output channel for debugging and logging
 
-For example if there is an image subfolder under your extension project workspace:
+## Create release
 
-\!\[feature X\]\(images/feature-x.png\)
+* Update `"version": "0.0.1",` in [package.json](package.json).
+* `git tag v0.0.1 && git push origin v0.0.1`
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Installation
+
+### Quick Install (One-liner)
+
+```bash
+curl -sSL https://raw.githubusercontent.com/hmaerki/maerki_util_cashbox_muh2/main/install.sh | bash
+```
+
+### Manual Installation
+
+1. **Prerequisites:**
+   - VS Code installed with `code` command available
+   - Node.js (version 18+)
+   - npm
+   - git
+
+2. **Install steps:**
+   ```bash
+   git clone https://github.com/hmaerki/maerki_util_cashbox_muh2.git
+   cd maerki_util_cashbox_muh2
+   npm install
+   npm run compile
+   npm install @vscode/vsce
+   npx @vscode/vsce package
+   code --install-extension muh2-0.0.1.vsix
+   ```
+
+3. **Restart VS Code** to activate the extension
+
+### Install from Release (when available)
+
+```bash
+# Download latest release
+wget https://github.com/hmaerki/maerki_util_cashbox_muh2/releases/latest/download/muh2-0.0.1.vsix
+code --install-extension muh2-0.0.1.vsix
+```
+
+## Usage
+
+1. Open any `.muh2` file in VS Code
+2. Enjoy syntax highlighting
+3. Use autocompletion by typing journal entries like:
+   ```
+   2024-01-01A b 123.45 
+   ```
+4. View extension output in: `View` → `Output` → "Muh2 Extension"
 
 ## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
 
 Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
