@@ -1,0 +1,22 @@
+[
+    {
+        "label": "keineMWST",
+        "detail": "Keine MWST"
+    },
+    {
+        "label": "privat",
+        "detail": "Buchung 123 -> 456"
+    },
+    {
+        "label": "revolut_hans_chf",
+        "detail": "Ja ja"
+    },
+    {
+        "label": "revolut_hans_usd",
+        "detail": "Salamibrot"
+    },
+    {
+        "label": "verbrauchhw",
+        "detail": "Rumpelstilz"
+    }
+]
