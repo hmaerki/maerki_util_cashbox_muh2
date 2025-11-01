@@ -9,7 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
     // Create output channel for the extension
     outputChannel = vscode.window.createOutputChannel('Muh2 Cashbox Extension');
     outputChannel.appendLine('Muh2 Cashbox Extension activated');
-    
+
     // Register completion provider for muh2 language
     const provider = vscode.languages.registerCompletionItemProvider(
         { language: 'muh2' },
@@ -41,33 +41,26 @@ class Muh2CompletionProvider implements vscode.CompletionItemProvider {
         const line = document.lineAt(position.line);
         const lineText = line.text;
 
+        let filename = 'codecompletion_buchungen.json'
         let completionItems: vscode.CompletionItem[] = [];
-
         try {
-            // const workspaceFolder = vscode.workspace.getWorkspaceFolder(document.uri);
-            // if (!workspaceFolder) {
-            //     this.outputChannel.appendLine('ERROR: getWorkspaceFolder() failed for: ' + document.uri);
-            //     return [];
-            // }
-            const jsonPath = path.join(path.dirname(document.uri.fsPath), 'codecompletion_buchungen.json');
-            this.outputChannel.appendLine('Loading completion data from: ' + jsonPath);
-            
-            const jsonData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+            const jsonPath = path.join(path.dirname(document.uri.fsPath), filename);
+            this.outputChannel.appendLine(`${filename}: Loading`);
 
+            const jsonData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
             if (Array.isArray(jsonData)) {
                 completionItems = jsonData.map(item =>
-                    this.createCompletionItem(item.label || item.id, item.detail || item.description)
+                    this.createCompletionItem(item.label || item.id, item.detail || filename)
                 );
-                this.outputChannel.appendLine(`Loaded ${completionItems.length} completion items`);
+                this.outputChannel.appendLine(`${filename}: ${completionItems.length} buchungen`);
             }
         } catch (error) {
-            this.outputChannel.appendLine('ERROR: Failed to read codecompletion_buchungen.json: ' + error);
+            this.outputChannel.appendLine(`${filename}: ERROR: Failed to read: ${error}`);
         }
 
         // Check if we're in a journal entry context
         const journalEntryRegex = /^\d{4}-\d{2}-\d{2}\w+\s+(b|f|vorschlag)\s+\-?\d+\.\d+\s+$/;
         const textBeforeCursor = lineText.substring(0, position.character);
-
 
         // Only provide completions if we're at the identifier position
         if (journalEntryRegex.test(textBeforeCursor)) {

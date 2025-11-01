@@ -15,9 +15,6 @@
     "Programming Languages"
   ],
   "main": "./out/extension.js",
-  "activationEvents": [
-    "onLanguage:muh2"
-  ],
   "contributes": {
     "languages": [
       {
