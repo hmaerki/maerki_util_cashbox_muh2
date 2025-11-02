@@ -13,6 +13,9 @@ A VS Code extension for Cashbox muh2 files, providing syntax highlighting and in
 * Update `"version": "0.0.1",` in [package.json](package.json).
 * `git tag v0.0.1 && git push origin v0.0.1`
 
+Might be also helpful: remote a tag
+* `git tag -d v0.0.1 && git push --delete origin v0.0.1`
+
 ## Installation
 
 ### Quick Install (One-liner)
@@ -45,9 +48,22 @@ curl -sSL https://raw.githubusercontent.com/hmaerki/maerki_util_cashbox_muh2/mai
 ### Install from Release (when available)
 
 ```bash
-# Download latest release
-wget https://github.com/hmaerki/maerki_util_cashbox_muh2/releases/latest/download/muh2-0.0.1.vsix
-code --install-extension muh2-0.0.1.vsix
+# Download and install latest release
+wget https://github.com/hmaerki/maerki_util_cashbox_muh2/releases/latest/download/muh2-0.0.2.vsix
+code --install-extension muh2-0.0.2.vsix
+```
+
+Or use curl:
+```bash
+# Download and install latest release with curl
+curl -L -o muh2-0.0.2.vsix https://github.com/hmaerki/maerki_util_cashbox_muh2/releases/latest/download/muh2-0.0.2.vsix
+code --install-extension muh2-0.0.2.vsix
+```
+
+One-liner with automatic cleanup:
+```bash
+# Download, install, and cleanup
+wget https://github.com/hmaerki/maerki_util_cashbox_muh2/releases/latest/download/muh2-0.0.2.vsix && code --install-extension muh2-0.0.2.vsix && rm muh2-0.0.2.vsix
 ```
 
 ## Usage

@@ -2,7 +2,7 @@
   "name": "muh2",
   "displayName": "muh2",
   "description": "Cashbox muh2",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "hmaerki",
   "repository": {
     "type": "git",
@@ -15,10 +15,29 @@
     "Programming Languages"
   ],
   "main": "./out/extension.js",
-  "activationEvents": [
-    "onLanguage:muh2"
-  ],
   "contributes": {
+    "commands": [
+      {
+        "command": "cashbox.run",
+        "title": "Cashbox: Run"
+      },
+      {
+        "command": "cashbox.pdf",
+        "title": "Cashbox: Generate PDF"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "cashbox.run",
+        "key": "shift+ctrl+c",
+        "mac": "shift+cmd+c"
+      },
+      {
+        "command": "cashbox.pdf",
+        "key": "shift+ctrl+p",
+        "mac": "shift+cmd+p"
+      }
+    ],
     "languages": [
       {
         "id": "muh2",
