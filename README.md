@@ -13,6 +13,9 @@ A VS Code extension for Cashbox muh2 files, providing syntax highlighting and in
 * Update `"version": "0.0.1",` in [package.json](package.json).
 * `git tag v0.0.1 && git push origin v0.0.1`
 
+Might be also helpful: remote a tag
+* `git tag -d v0.0.1 && git push --delete origin v0.0.1`
+
 ## Installation
 
 ### Quick Install (One-liner)
